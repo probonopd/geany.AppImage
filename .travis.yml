@@ -26,7 +26,7 @@ before_script:
   - tar xf geany-*.tar.gz
 
 script:
-  - cd "geany-*/"
+  - cd geany-*/
   - ./configure --enable-gtk3=yes --enable-binreloc --prefix=/usr
   - make -j$(nproc)
   - make -j$(nproc) check
