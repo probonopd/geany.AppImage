@@ -31,6 +31,7 @@ script:
   - make -j$(nproc)
   - make -j$(nproc) check
   - make install DESTDIR=$(readlink -f appdir) ; find appdir/
+  - cp appdir/usr/share/icons/hicolor/scalable/apps/geany.svg appdir/ # Why is this needed?
   - sed -i -e 's|Text;Editor|Text;Editor;|g' appdir/usr/share/applications/geany.desktop # FIXME
   - sed -i -e 's|Keywords|X-Keywords|g' appdir/usr/share/applications/geany.desktop # FIXME
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
