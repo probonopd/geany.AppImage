@@ -31,6 +31,8 @@ script:
   - make -j$(nproc)
   - make -j$(nproc) check
   - make install DESTDIR=$(readlink -f appdir) ; find appdir/
+  - sed -i -e 's|Text;Editor|Text;Editor;|g' appdir/usr/share/applications/geany.desktop # FIXME
+  - sed -i -e 's|Keywords[el]|X-Keywords[el]|g' appdir/usr/share/applications/geany.desktop # FIXME
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
   - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
   - unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
