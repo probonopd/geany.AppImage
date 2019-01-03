@@ -23,7 +23,7 @@ before_script:
   - URL=$(wget --quiet "http://download.geany.org/" -O - | grep -e "geany-.*\.tar\.gz<" | tail -n 1 | cut -d '"' -f 2)
   - export VERSION=$(echo "$URL" | sed -r 's/.*geany-(.*).tar.gz/\1/')
   - wget -c "http://download.geany.org/$URL"
-  - tar xvf "geany-*.tar.gz"
+  - tar xf geany-*.tar.gz
 
 script:
   - cd "geany-*/"
